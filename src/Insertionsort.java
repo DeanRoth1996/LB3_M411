@@ -2,9 +2,9 @@ public class Insertionsort {
 
     private int loopPasses = 0;
 
-    private int[] sort(int array[]) {
+    public int[] sort(int[] array) {
 
-        int zahlenArray[] = array;
+        int[] zahlenArray = array;
         int n = zahlenArray.length;
         for (int i = 1; i < n; ++i) {
             loopPasses++;
