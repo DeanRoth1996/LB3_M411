@@ -1,7 +1,22 @@
+/**
+ * Klasse mit Sortieralgorithmus zur
+ * Sortierung von Zahlenarrays
+ *
+ * @Author Nikola Aleksic
+ * @Version 1.0
+ * @Date 28.01.2021
+ */
 public class Insertionsort {
-
+    /**
+     * @Attribute Zählervariable für Schleifendurchgänge
+     */
     private int loopPasses = 0;
 
+    /**
+     * Sortiermethode sort()
+     * @param array int[] unsortiert
+     * @return array int[] sortiert
+     */
     public int[] sort(int[] array) {
 
         int[] zahlenArray = array;
@@ -20,6 +35,10 @@ public class Insertionsort {
         return zahlenArray;
     }
 
+    /**
+     * get-Methode von Schleifendurchgängen
+     * @return Zählervariable loopPasses
+     */
     public int getLoopPasses() {
         return loopPasses;
     }
