@@ -1,10 +1,13 @@
 public class Insertionsort {
 
+    private int loopPasses = 0;
+
     private int[] sort(int array[]) {
 
         int zahlenArray[] = array;
         int n = zahlenArray.length;
         for (int i = 1; i < n; ++i) {
+            loopPasses++;
             int key = zahlenArray[i];
             int j = i - 1;
 
@@ -15,6 +18,10 @@ public class Insertionsort {
             zahlenArray[j + 1] = key;
         }
         return zahlenArray;
+    }
+
+    public int getLoopPasses() {
+        return loopPasses;
     }
 
 }
