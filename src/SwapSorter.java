@@ -1,7 +1,8 @@
 public class SwapSorter {
 
-    public void sort(int[] sortMe) {
+    public int[] sort(int[] sortMe) {
 
+        int zahlenArray[] = sortMe;
         int startwert = 0;
 
         while (startwert < sortMe.length - 1) {
@@ -18,6 +19,7 @@ public class SwapSorter {
                 startwert++;
             }
         }
+        return zahlenArray;
     }
 
     private int countSmallerOnes(final int[] countHere, final int index) {
@@ -29,20 +31,4 @@ public class SwapSorter {
         }
         return counter;
     }
-
-    /* Testmain
-    public static void main(String[] args) {
-
-        int[] a = {3, 7, 45, 1, 33, 5, 2, 9};
-        System.out.print("unsorted: ");
-        for (int i = 0; i < a.length; i++) {
-            System.out.print(a[i] + "  ");
-        }
-        System.out.println();
-        new SwapSorter().sort(a);
-        System.out.print("sorted: ");
-        for (int i = 0; i < a.length; i++) {
-            System.out.print(a[i] + "  ");
-        }
-    }*/
 }
