@@ -2,6 +2,12 @@
  * Klasse mit Sortieralgorithmus zur
  * Sortierung von Zahlenarrays
  *
+ * Stabil: ja
+ *
+ *Worst-Case: О(n)
+ *Average-Case: O(n^2)
+ *Best-Case: O(n log n)
+ *
  * @Author Nikola Aleksic
  * @Version 1.0
  * @Date 28.01.2021
