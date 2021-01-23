@@ -4,9 +4,9 @@
  *
  * Stabil: ja
  *
- *Worst-Case: О(n)
- *Average-Case: O(n^2)
- *Best-Case: O(n log n)
+ * Worst-Case: О(n)
+ * Average-Case: O(n^2)
+ * Best-Case: O(n log n)
  *
  * @Author Nikola Aleksic
  * @Version 1.0
