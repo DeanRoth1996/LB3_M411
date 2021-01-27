@@ -15,10 +15,12 @@ import java.util.HashMap;
  */
 public class SwapSorter {
 
+    Instant start = Instant.now();
+
     int loopPasses = 0;
     int swaps = 0;
+    long memory = 0;
 
-    Instant start = Instant.now();
 
     public int[] sort(int[] sortMe) {
 
@@ -27,8 +29,6 @@ public class SwapSorter {
 
 
         while (startwert < sortMe.length - 1) {
-
-            loopPasses++;
 
             int kleinere = countSmallerOnes(sortMe, startwert);
 
@@ -41,36 +41,43 @@ public class SwapSorter {
             else
             {
                 startwert++;
+
             }
+            swaps++;
+            loopPasses++;
         }
 
 
+        Runtime rt = Runtime.getRuntime();
+        memory = rt.totalMemory() - rt.freeMemory();
 
         return messArray;
     }
+
     Instant finish = Instant.now();
-    long time = Duration.between(start, finish).toMillis();  //in millis
+    long time = Duration.between(start, finish).toMillis();
 
 
     private int countSmallerOnes(final int[] countHere, final int index) {
         int counter = 0;
+
         for (int i = index + 1; i < countHere.length; i++) {
             if (countHere[index] > countHere[i]) {
                 counter++;
             }
-            swaps++;
+
         }
         return counter;
     }
     /**
-     * get-Methode von Schleifendurchgängen
+     * get-Methode der Anzahl Schleifendurchgängen
      * @return Zählervariable loopPasses
      */
-    public int getLoopPasses() {
+    public int getLoops() {
         return loopPasses;
     }
     /**
-     * get-Methode von Swaps
+     * get-Methode der Anzahl Swaps
      * @return Zählervariable swaps
      */
     public int getSwaps() {return swaps;
@@ -80,6 +87,12 @@ public class SwapSorter {
      * @return benötigte Zeit der Sortierung in ms
      */
     public long getTime(){return time;}
+    /**
+     * get-Methode des Speichers
+     * @return Speicherbedarf der
+     */
+    public long getMemory(){return memory;}
+
 
 
 }
