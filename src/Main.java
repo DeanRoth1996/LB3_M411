@@ -3,7 +3,7 @@ import java.sql.SQLOutput;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
-
+/*
 public class Main {
 
     private static Map<String, Map<String, Double>> tenInts_measurements;
@@ -192,5 +192,5 @@ public class Main {
         }
         return s;
     }
-}
+}*/
 
