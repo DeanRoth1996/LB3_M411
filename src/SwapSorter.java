@@ -15,15 +15,17 @@ import java.util.HashMap;
  */
 public class SwapSorter {
 
-    Instant start = Instant.now();
+
 
     int loopPasses = 0;
     int swaps = 0;
     long memory = 0;
+    long time=0;
 
 
     public int[] sort(int[] sortMe) {
 
+        long startTime = new Date().getTime();
         int messArray[] = sortMe;
         int startwert = 0;
 
@@ -47,16 +49,12 @@ public class SwapSorter {
             loopPasses++;
         }
 
-
+        time = new Date().getTime()-startTime;
         Runtime rt = Runtime.getRuntime();
         memory = rt.totalMemory() - rt.freeMemory();
 
         return messArray;
     }
-
-    Instant finish = Instant.now();
-    long time = Duration.between(start, finish).toMillis();
-
 
     private int countSmallerOnes(final int[] countHere, final int index) {
         int counter = 0;
@@ -94,5 +92,39 @@ public class SwapSorter {
     public long getMemory(){return memory;}
 
 
+    public static void main(String[] args) {
+        SwapSorter swapSorter = new SwapSorter();
 
+        int[] myNum =  {7,8,5,2,4,9,3,1} ;
+
+        System.out.println("not sorted: ");
+        for (int i = 0; i < myNum.length; i++) {
+            System.out.print(myNum[i] + " ");
+        }
+        swapSorter.sort(myNum);
+
+
+
+        int loopPasses = swapSorter.getLoops();
+        int swaps = swapSorter.getSwaps();
+        long time = swapSorter.getTime();
+        long memory = swapSorter.getMemory();
+
+        System.out.println();
+        System.out.println();
+        System.out.println("sorted: ");
+
+        for (int i = 0; i < myNum.length; i++) {
+            System.out.print(myNum[i] + " ");
+        }
+
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Looppasses: " + loopPasses);
+        System.out.println("swapss: " + swaps);
+        System.out.println("Time: " + time + "ms");
+        System.out.println("Memory: " + memory + " Bytes");
+
+    }
 }

@@ -1,7 +1,16 @@
 /**
- * @author Dean Roth
- * @version 1.0
- * @date 21.01.2021
+ * Klasse mit Sortieralgorithmus zur
+ * Sortierung von Zahlenarrays
+ *
+ * Stabil: ja
+ *
+ * Worst-Case: О(n^2)
+ * Average-Case: O(n^2)
+ * Best-Case: 0(n)
+ *
+ * @Author Dean Roth
+ * @Version 1.0
+ * @Date 28.01.2021
  */
 
 import java.util.Arrays;
