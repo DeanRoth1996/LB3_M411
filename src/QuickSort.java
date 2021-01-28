@@ -48,16 +48,6 @@ public class QuickSort {
         return array;
     }
 
-    /**
-     * Diese Funktion nimmt das letzte Element aus dem Array als Pivot
-     * und platzierte es am richtigen ort. Die kleineren Zahlen "links" davon
-     * und die grösseren "rechts".
-     *
-     * @param array unsortiertes array aus Zahlen
-     * @param low kleinster möglicher Index des Arrays
-     * @param high grösster möglicher Index des Arrays
-     * @return index
-     */
     private int partition(int[] array, int low, int high) {
         int pivot = array[high];
         int i = (low - 1); // index of smaller element

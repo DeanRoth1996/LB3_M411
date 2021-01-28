@@ -26,6 +26,12 @@ public class BubbleSort {
     private double time;
     private double memory;
 
+    /**
+     * Diese Funktion implementiert den Bubble Sort Rekurrsiv
+     *
+     * @param array unsortiertes array aus Zahlen
+     * @return sortiertes Array aus Zahlen
+     */
     public int[] sort(int[] array) {
         Instant start = Instant.now();
         int n = array.length;

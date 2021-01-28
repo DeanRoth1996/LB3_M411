@@ -51,7 +51,7 @@ public class Main {
     private static int[] getSortedIntsAndMeasurements(int[] unsortedIntsArray, HowManyInts howManyInts) {
         SwapSorter swapSort = new SwapSorter();
         Insertionsort insertionSort = new Insertionsort();
-        gnomeSort gnomeSort = new gnomeSort();
+        GnomeSort gnomeSort = new GnomeSort();
         BubbleSort bubbleSort = new BubbleSort();
         QuickSort quickSort = new QuickSort();
 
@@ -66,12 +66,12 @@ public class Main {
         return sortedInts;
     }
 
-    private static void putMeasurementsMapInMap(HowManyInts howManyInts, SwapSorter swapSort, Insertionsort insertionSort, gnomeSort gnomeSort, BubbleSort bubbleSort, QuickSort quickSort) {
+    private static void putMeasurementsMapInMap(HowManyInts howManyInts, SwapSorter swapSort, Insertionsort insertionSort, GnomeSort gnomeSort, BubbleSort bubbleSort, QuickSort quickSort) {
         Map<String, Map<String, Double>> mapOfAllMeasurements = new HashMap<>();
 
         Map<String, Double> swap_measurements = putMeasurementsInMap(swapSort.getTime(), swapSort.getMemory(), (double) swapSort.getComparisons(), (double) swapSort.getLoops());
         Map<String, Double> insertion_measurements = putMeasurementsInMap(insertionSort.getTime(), insertionSort.getMemory(), insertionSort.getComparisons(), insertionSort.getLoops());
-        Map<String, Double> gnome_measurements = putMeasurementsInMap(gnomeSort.getTime(), gnomeSort.getMemory(), gnomeSort.getComparisons(), gnomeSort.getLoops());
+        Map<String, Double> gnome_measurements = putMeasurementsInMap(gnomeSort.getTime(), gnomeSort.getMemory(), null, (double) gnomeSort.getLoops());
         Map<String, Double> bubble_measurements = putMeasurementsInMap(bubbleSort.getTime(), bubbleSort.getMemory(), bubbleSort.getComparisons(), bubbleSort.getLoops());
         Map<String, Double> quick_measurements = putMeasurementsInMap(quickSort.getTime(), quickSort.getMemory(), quickSort.getComparisons(), quickSort.getLoops());
 
@@ -109,18 +109,20 @@ public class Main {
         switch (howManyInts){
             case TEN:
                 System.out.println("TEN integers:");
+                printStringOfIntegers(sortedInts);
+                printTable(tenInts_measurements);
                 break;
             case HUNDRED:
                 System.out.println("HUNDRED integers:");
+                printStringOfIntegers(sortedInts);
+                printTable(hundredInts_measurements);
                 break;
             case THOUSAND:
                 System.out.println("THOUSAND integers:");
+                printStringOfIntegers(sortedInts);
+                printTable(thousandInts_measurements);
                 break;
         }
-        printStringOfIntegers(sortedInts);
-        printTable(tenInts_measurements);
-        printTable(hundredInts_measurements);
-        printTable(thousandInts_measurements);
     }
 
     private static void printStringOfIntegers(int[] ints){
@@ -160,7 +162,7 @@ public class Main {
 
         String quick_time = String.valueOf(measurements.get("quick").get("time"));
         String quick_memory = String.valueOf(measurements.get("quick").get("memory"));
-        String quick_comparisons = String.valueOf(measurements.get("quick").get("comparisons")  ;
+        String quick_comparisons = String.valueOf(measurements.get("quick").get("comparisons"));
         String quick_loops = String.valueOf(measurements.get("quick").get("loops"));
 
         System.out.println(makeALineForTable("","Time(ms)", "Memory(byte)", "Comparisons", "loops"));

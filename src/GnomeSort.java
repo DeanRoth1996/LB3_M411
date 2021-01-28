@@ -105,7 +105,7 @@ public class GnomeSort {
      * @param arr
      * @param n
      */
-    public void GnomeSort(int arr[], int n) {
+    public void gnomeSort(int arr[], int n) {
         setStartTime();
         int index = 0;
 
