@@ -160,7 +160,7 @@ public class Main {
 
         String quick_time = String.valueOf(measurements.get("quick").get("time"));
         String quick_memory = String.valueOf(measurements.get("quick").get("memory"));
-        String quick_comparisons = String.valueOf(measurements.get("quick").get("comparisons")  ;
+        String quick_comparisons = String.valueOf(measurements.get("quick").get("comparisons"));
         String quick_loops = String.valueOf(measurements.get("quick").get("loops"));
 
         System.out.println(makeALineForTable("","Time(ms)", "Memory(byte)", "Comparisons", "loops"));
