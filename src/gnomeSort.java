@@ -12,22 +12,24 @@
  * @Version 1.0
  * @Date 28.01.2021
  */
-
-import java.util.Arrays;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Date;
+import java.util.HashMap;
 
 public class gnomeSort {
-    private long startTime;
-    private long endTime;
-    private long finalTime;
+    double startTime;
+    double endTime;
+    double finalTime;
+    double memory = 0;
+    int loopCounter;
 
-    private int loopCounter;
 
     /**
      *
      * @return
      */
-    public long getStartTime() {
+    public double getStartTime() {
         return startTime;
     }
 
@@ -35,7 +37,8 @@ public class gnomeSort {
         startTime = new Date().getTime();
     }
 
-    public long getEndTime() {        return endTime;
+    public double getEndTime() {
+        return endTime;
     }
 
     public void setEndTime() {
@@ -47,7 +50,7 @@ public class gnomeSort {
         finalTime = endTime - startTime;
     }
 
-    public long getFinalTime() {
+    public double getFinalTime() {
         return finalTime;
     }
 
@@ -84,8 +87,12 @@ public class gnomeSort {
                 index--;
             }
         }
+
         setEndTime();
+        Runtime rt = Runtime.getRuntime();
+        memory = rt.totalMemory() - rt.freeMemory();
         return;
+
     }
 
     /**

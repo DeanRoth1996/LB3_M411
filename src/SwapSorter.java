@@ -72,25 +72,28 @@ public class SwapSorter {
      * get-Methode der Anzahl Schleifendurchgängen
      * @return Zählervariable loopPasses
      */
-    public int getLoops() {
-        return loopPasses;
-    }
+public int getLoops() {
+    return loopPasses;
+}
     /**
      * get-Methode der Anzahl Vergleiche
      * @return Zählervariable comparisons
      */
-    public int getComparisons() {return comparisons;
+    public int getComparisons() {
+        return comparisons;
     }
     /**
      * get-Methode der Zeit
      * @return benötigte Zeit der Sortierung in ms
      */
-    public double getTime(){return time;}
+    public double getTime(){
+        return time;}
     /**
      * get-Methode des Speichers
      * @return Speicherbedarf der
      */
-    public double getMemory(){return memory;}
+    public double getMemory(){
+        return memory;}
 
 /*
     public static void main(String[] args) {
