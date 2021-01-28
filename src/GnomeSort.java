@@ -70,7 +70,7 @@ public class GnomeSort {
      * get-Methode der Zeit
      * @return benötigte Zeit der Sortierung in ms
      */
-    public double getFinalTime() {
+    public double getTime() {
         return finalTime;
     }
     /**
@@ -81,7 +81,7 @@ public class GnomeSort {
     /**
      * @return Schleifenzähler
      */
-    public int getLoopCounter() {
+    public int getLoops() {
         return loopCounter;
     }
 
@@ -141,7 +141,7 @@ public class GnomeSort {
 
         System.out.print("Sorted sequence after applying Gnome sort: ");
         System.out.println(Arrays.toString(arr));
-        System.out.println(gs.getFinalTime() + " ms");
+        System.out.println(gs.getTime() + " ms");
         System.out.println(gs.getLoopCounter() + " loops");
         System.out.println(gs.getIterrationCounter() + " iterrations");
     }**/
