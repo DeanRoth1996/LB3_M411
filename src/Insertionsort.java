@@ -55,7 +55,7 @@ public class Insertionsort {
      *
      * @return Zählervariable loopPasses
      */
-    public int getLoops() {
+    public double getLoops() {
         return loopPasses;
     }
 
