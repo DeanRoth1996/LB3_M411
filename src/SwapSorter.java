@@ -18,9 +18,9 @@ public class SwapSorter {
 
 
     int loopPasses = 0;
-    int swaps = 0;
-    long memory = 0;
-    long time=0;
+    int comparisons = 0;
+    double memory = 0;
+    double time=0;
 
 
     public int[] sort(int[] sortMe) {
@@ -45,7 +45,7 @@ public class SwapSorter {
                 startwert++;
 
             }
-            swaps++;
+            comparisons++;
             loopPasses++;
         }
 
@@ -63,6 +63,7 @@ public class SwapSorter {
             if (countHere[index] > countHere[i]) {
                 counter++;
             }
+            comparisons++;
 
         }
         return counter;
@@ -75,23 +76,23 @@ public class SwapSorter {
         return loopPasses;
     }
     /**
-     * get-Methode der Anzahl Swaps
-     * @return Zählervariable swaps
+     * get-Methode der Anzahl Vergleiche
+     * @return Zählervariable comparisons
      */
-    public int getSwaps() {return swaps;
+    public int getComparisons() {return comparisons;
     }
     /**
      * get-Methode der Zeit
      * @return benötigte Zeit der Sortierung in ms
      */
-    public long getTime(){return time;}
+    public double getTime(){return time;}
     /**
      * get-Methode des Speichers
      * @return Speicherbedarf der
      */
-    public long getMemory(){return memory;}
+    public double getMemory(){return memory;}
 
-
+/*
     public static void main(String[] args) {
         SwapSorter swapSorter = new SwapSorter();
 
@@ -106,9 +107,9 @@ public class SwapSorter {
 
 
         int loopPasses = swapSorter.getLoops();
-        int swaps = swapSorter.getSwaps();
-        long time = swapSorter.getTime();
-        long memory = swapSorter.getMemory();
+        int comparisons = swapSorter.getComparisons();
+        double time = swapSorter.getTime();
+        double memory = swapSorter.getMemory();
 
         System.out.println();
         System.out.println();
@@ -122,9 +123,9 @@ public class SwapSorter {
         System.out.println();
         System.out.println();
         System.out.println("Looppasses: " + loopPasses);
-        System.out.println("swapss: " + swaps);
+        System.out.println("comparisons: " + comparisons);
         System.out.println("Time: " + time + "ms");
         System.out.println("Memory: " + memory + " Bytes");
 
-    }
+    }*/
 }
