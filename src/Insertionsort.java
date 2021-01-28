@@ -20,7 +20,7 @@ public class Insertionsort {
      * @Attribute Zählervariable für Schleifendurchgänge, memory für Speicher
      */
     private int loopPasses = 0;
-    long memory = 0;
+    double memory = 0;
     /**
      * Sortiermethode sort()
      *
@@ -48,7 +48,7 @@ public class Insertionsort {
         return zahlenArray;
     }
     Instant finish = Instant.now();
-    long time = Duration.between(start, finish).toMillis();  //in millis
+    double time = Duration.between(start, finish).toMillis();  //in millis
 
     /**
      * get-Methode von Schleifendurchgängen
@@ -59,7 +59,11 @@ public class Insertionsort {
         return loopPasses;
     }
 
-    public long getTime() {
+    public double getTime() {
         return time;
+    }
+
+    public double getMemory() {
+        return memory;
     }
 }
