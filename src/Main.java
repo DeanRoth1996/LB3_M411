@@ -3,6 +3,14 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Klasse zum Aufrufen der verschiedenen Sortieralgorhitmen und
+ * Formatierung für die Ausgabe.
+ *
+ * @Author Skyelar Maurer
+ * @Version 1.0
+ * @Date 28.01.2021
+ */
 public class Main {
 
     private static Map<String, Map<String, Double>> tenInts_measurements;
