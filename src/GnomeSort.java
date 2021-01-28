@@ -17,7 +17,7 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.HashMap;
 
-public class gnomeSort {
+public class GnomeSort {
     /**
      * @Attribute Start- und Endzeit, Zählervariable für Schleifendurchgänge, memory für Speicher
      */
@@ -105,7 +105,7 @@ public class gnomeSort {
      * @param arr
      * @param n
      */
-    public void gnomeSort(int arr[], int n) {
+    public void GnomeSort(int arr[], int n) {
         setStartTime();
         int index = 0;
 
@@ -135,9 +135,9 @@ public class gnomeSort {
     public static void main(String[] args) {
         int arr[] = {34, 2, 10, -9};
 
-        gnomeSort gs = new gnomeSort();
+        GnomeSort gs = new GnomeSort();
 
-        gs.gnomeSort(arr, arr.length);
+        gs.GnomeSort(arr, arr.length);
 
         System.out.print("Sorted sequence after applying Gnome sort: ");
         System.out.println(Arrays.toString(arr));
