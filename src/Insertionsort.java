@@ -1,9 +1,12 @@
+import java.time.Duration;
+import java.time.Instant;
+
 /**
  * Klasse mit Sortieralgorithmus zur
  * Sortierung von Zahlenarrays
- *
+ * <p>
  * Stabil: ja
- *
+ * <p>
  * Worst-Case: О(n)
  * Average-Case: O(n^2)
  * Best-Case: O(n log n)
@@ -14,15 +17,17 @@
  */
 public class Insertionsort {
     /**
-     * @Attribute Zählervariable für Schleifendurchgänge
+     * @Attribute Zählervariable für Schleifendurchgänge, memory für Speicher
      */
     private int loopPasses = 0;
-
+    long memory = 0;
     /**
      * Sortiermethode sort()
+     *
      * @param array int[] unsortiert
      * @return array int[] sortiert
      */
+    Instant start = Instant.now();
     public int[] sort(int[] array) {
 
         int[] zahlenArray = array;
@@ -38,15 +43,23 @@ public class Insertionsort {
             }
             zahlenArray[j + 1] = key;
         }
+        Runtime rt = Runtime.getRuntime();
+        memory = rt.totalMemory() - rt.freeMemory();
         return zahlenArray;
     }
+    Instant finish = Instant.now();
+    long time = Duration.between(start, finish).toMillis();  //in millis
 
     /**
      * get-Methode von Schleifendurchgängen
+     *
      * @return Zählervariable loopPasses
      */
     public int getLoopPasses() {
         return loopPasses;
     }
 
+    public long getTime() {
+        return time;
+    }
 }
