@@ -55,7 +55,7 @@ public class Insertionsort {
      *
      * @return Zählervariable loopPasses
      */
-    public int getLoopPasses() {
+    public int getLoops() {
         return loopPasses;
     }
 
@@ -65,5 +65,9 @@ public class Insertionsort {
 
     public double getMemory() {
         return memory;
+    }
+
+    public Double getComparisons() {
+        return null;
     }
 }
