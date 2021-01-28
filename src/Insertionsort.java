@@ -19,7 +19,7 @@ public class Insertionsort {
     /**
      * @Attribute Zählervariable für Schleifendurchgänge, memory für Speicher
      */
-    private int loopPasses = 0;
+    double loopPasses = 0;
     double memory = 0;
     /**
      * Sortiermethode sort()
