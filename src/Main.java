@@ -3,6 +3,14 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Klasse zum Aufrufen der verschiedenen Sortieralgorhitmen und
+ * Formatierung für die Ausgabe.
+ *
+ * @Author Skyelar Maurer
+ * @Version 1.0
+ * @Date 28.01.2021
+ */
 public class Main {
 
     private static Map<String, Map<String, Double>> tenInts_measurements;
@@ -152,7 +160,7 @@ public class Main {
 
         String quick_time = String.valueOf(measurements.get("quick").get("time"));
         String quick_memory = String.valueOf(measurements.get("quick").get("memory"));
-        String quick_comparisons = String.valueOf(measurements.get("quick").get("comparisons");
+        String quick_comparisons = String.valueOf(measurements.get("quick").get("comparisons")  ;
         String quick_loops = String.valueOf(measurements.get("quick").get("loops"));
 
         System.out.println(makeALineForTable("","Time(ms)", "Memory(byte)", "Comparisons", "loops"));

@@ -17,59 +17,95 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.HashMap;
 
-public class gnomeSort {
+public class GnomeSort {
+    /**
+     * @Attribute Start- und Endzeit, Zählervariable für Schleifendurchgänge, memory für Speicher
+     */
+
     double startTime;
     double endTime;
     double finalTime;
     double memory = 0;
     int loopCounter;
 
-
     /**
      *
-     * @return
+     * @return Startzeit
      */
     public double getStartTime() {
         return startTime;
     }
 
+    /**
+     * set-Methode für Startzeit
+     */
     public void setStartTime() {
         startTime = new Date().getTime();
     }
 
+    /**
+     *
+     * @return Endzeit
+     */
     public double getEndTime() {
         return endTime;
     }
 
+    /**
+     * set-Methode für Endzeit
+     */
     public void setEndTime() {
         endTime = new Date().getTime();
         setFinalTime();
     }
 
+    /**
+     * set-Methode für finale Zeit
+     */
     public void setFinalTime() {
         finalTime = endTime - startTime;
     }
 
+    /**
+     * get-Methode der Zeit
+     * @return benötigte Zeit der Sortierung in ms
+     */
     public double getFinalTime() {
         return finalTime;
     }
+    /**
+     * get-Methode der Anzahl Schleifendurchgängen
+     * @return Zählervariable loopPasses
+     */
 
+    /**
+     * @return Schleifenzähler
+     */
     public int getLoopCounter() {
         return loopCounter;
     }
 
+    /**
+     * Loopcounter erhöhen
+     */
     public void plusLoopCounter() {
         this.loopCounter++;
     }
 
+    /**
+     * get-Methode des Speichers
+     * @return Speicherbedarf der
+     */
+    public double getMemory(){
+        return memory;}
+
 
     /**
-     * Was macht es
      *
      * @param arr
      * @param n
      */
-    public void gnomeSort(int arr[], int n) {
+    public void GnomeSort(int arr[], int n) {
         setStartTime();
         int index = 0;
 
@@ -99,9 +135,9 @@ public class gnomeSort {
     public static void main(String[] args) {
         int arr[] = {34, 2, 10, -9};
 
-        gnomeSort gs = new gnomeSort();
+        GnomeSort gs = new GnomeSort();
 
-        gs.gnomeSort(arr, arr.length);
+        gs.GnomeSort(arr, arr.length);
 
         System.out.print("Sorted sequence after applying Gnome sort: ");
         System.out.println(Arrays.toString(arr));
