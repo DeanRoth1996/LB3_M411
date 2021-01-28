@@ -35,8 +35,7 @@ public class gnomeSort {
         startTime = new Date().getTime();
     }
 
-    public long getEndTime() {
-        return endTime;
+    public long getEndTime() {        return endTime;
     }
 
     public void setEndTime() {
