@@ -3,13 +3,16 @@ import java.time.Instant;
 
 /**
  * Klasse mit Sortieralgorithmus zur
- * Sortierung von Zahlenarrays
- * <p>
+ * Sortierung von Zahlenarrays "Insertionsort"
+ *
  * Stabil: ja
- * <p>
+ *
  * Worst-Case: О(n)
  * Average-Case: O(n^2)
  * Best-Case: O(n log n)
+ *
+ * Quellen: https://de.wikipedia.org/wiki/Insertionsort
+ *          https://www.geeksforgeeks.org/insertion-sort/
  *
  * @Author Nikola Aleksic
  * @Version 1.0
