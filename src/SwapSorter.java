@@ -5,27 +5,34 @@ import java.util.HashMap;
 
 /**
  * Klasse mit Sortieralgorithmus zur
- * Sortierung von messArrays
- *
+ * Sortierung von ZahlenArrays (Swap-Sort)
+ * <p>
  * Stabil: ja
+ * <p>
+ * Worst-Case: O(n^2)
+ * Average-Case: O(n^2)
+ * Best-Case: O(n^2)
  *
  * @Author Jahi Yancy
  * @Version 1.0
  * @Date 24.01.2021
+ * Quelle: https://de.wikipedia.org/wiki/Swap-Sort
  */
+
 public class SwapSorter {
-
-
 
     int loopPasses = 0;
     int comparisons = 0;
     double memory = 0;
-    double time=0;
+    double time = 0;
 
-
+    /**
+     * @param sortMe
+     * @return
+     */
     public int[] sort(int[] sortMe) {
 
-        long startTime = new Date().getTime();
+        double startTime = new Date().getTime();
         int messArray[] = sortMe;
         int startwert = 0;
 
@@ -39,9 +46,7 @@ public class SwapSorter {
                 sortMe[startwert] = sortMe[startwert + kleinere];
                 sortMe[startwert + kleinere] = tmp;
 
-            }
-            else
-            {
+            } else {
                 startwert++;
 
             }
@@ -49,86 +54,64 @@ public class SwapSorter {
             loopPasses++;
         }
 
-        time = new Date().getTime()-startTime;
+        time = new Date().getTime() - startTime;
         Runtime rt = Runtime.getRuntime();
         memory = rt.totalMemory() - rt.freeMemory();
 
         return messArray;
     }
 
+    /**
+     * @param countHere
+     * @param index
+     * @return
+     */
     private int countSmallerOnes(final int[] countHere, final int index) {
         int counter = 0;
 
         for (int i = index + 1; i < countHere.length; i++) {
+            comparisons++;
             if (countHere[index] > countHere[i]) {
                 counter++;
             }
-            comparisons++;
-
         }
         return counter;
     }
+
     /**
      * get-Methode der Anzahl Schleifendurchgängen
+     *
      * @return Zählervariable loopPasses
      */
-public int getLoops() {
-    return loopPasses;
-}
+    public int getLoops() {
+        return loopPasses;
+    }
+
     /**
      * get-Methode der Anzahl Vergleiche
+     *
      * @return Zählervariable comparisons
      */
     public int getComparisons() {
         return comparisons;
     }
+
     /**
      * get-Methode der Zeit
+     *
      * @return benötigte Zeit der Sortierung in ms
      */
-    public double getTime(){
-        return time;}
+    public double getTime() {
+        return time;
+    }
+
     /**
      * get-Methode des Speichers
+     *
      * @return Speicherbedarf der
      */
-    public double getMemory(){
-        return memory;}
+    public double getMemory() {
+        return memory;
+    }
 
-/*
-    public static void main(String[] args) {
-        SwapSorter swapSorter = new SwapSorter();
-
-        int[] myNum =  {7,8,5,2,4,9,3,1} ;
-
-        System.out.println("not sorted: ");
-        for (int i = 0; i < myNum.length; i++) {
-            System.out.print(myNum[i] + " ");
-        }
-        swapSorter.sort(myNum);
-
-
-
-        int loopPasses = swapSorter.getLoops();
-        int comparisons = swapSorter.getComparisons();
-        double time = swapSorter.getTime();
-        double memory = swapSorter.getMemory();
-
-        System.out.println();
-        System.out.println();
-        System.out.println("sorted: ");
-
-        for (int i = 0; i < myNum.length; i++) {
-            System.out.print(myNum[i] + " ");
-        }
-
-
-        System.out.println();
-        System.out.println();
-        System.out.println("Looppasses: " + loopPasses);
-        System.out.println("comparisons: " + comparisons);
-        System.out.println("Time: " + time + "ms");
-        System.out.println("Memory: " + memory + " Bytes");
-
-    }*/
 }
