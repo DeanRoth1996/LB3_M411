@@ -1,9 +1,8 @@
 import java.io.*;
-import java.sql.SQLOutput;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
-/*
+
 public class Main {
 
     private static Map<String, Map<String, Double>> tenInts_measurements;
@@ -23,7 +22,6 @@ public class Main {
         printTableWithData(tenSortedInts, HowManyInts.TEN);
         printTableWithData(hundredSortedInts, HowManyInts.HUNDRED);
         printTableWithData(thousandSortedInts, HowManyInts.THOUSAND);
-
     }
 
     private static int[] readFile(String path, int[] array) {
@@ -45,34 +43,33 @@ public class Main {
     private static int[] getSortedIntsAndMeasurements(int[] unsortedIntsArray, HowManyInts howManyInts) {
         SwapSorter swapSort = new SwapSorter();
         Insertionsort insertionSort = new Insertionsort();
-        MergeSort mergeSort = new MergeSort();
+        gnomeSort gnomeSort = new gnomeSort();
         BubbleSort bubbleSort = new BubbleSort();
         QuickSort quickSort = new QuickSort();
 
         int[] sortedInts = insertionSort.sort(unsortedIntsArray);
         swapSort.sort(unsortedIntsArray);
-        //mergeSort.sort(unsortedIntsArray);
+        gnomeSort.gnomeSort(unsortedIntsArray, unsortedIntsArray.length);
         bubbleSort.sort(unsortedIntsArray);
-        quickSort.sort(unsortedIntsArray, 1, 100);
+        quickSort.sort(unsortedIntsArray, 0, unsortedIntsArray.length - 1);
 
-        putMeasurementsMapInMap(howManyInts, swapSort, insertionSort, mergeSort, bubbleSort, quickSort);
+        putMeasurementsMapInMap(howManyInts, swapSort, insertionSort, gnomeSort, bubbleSort, quickSort);
 
         return sortedInts;
     }
 
-    private static void putMeasurementsMapInMap(HowManyInts howManyInts, SwapSorter swapSort, Insertionsort insertionSort, MergeSort mergeSort, BubbleSort bubbleSort, QuickSort quickSort) {
+    private static void putMeasurementsMapInMap(HowManyInts howManyInts, SwapSorter swapSort, Insertionsort insertionSort, gnomeSort gnomeSort, BubbleSort bubbleSort, QuickSort quickSort) {
         Map<String, Map<String, Double>> mapOfAllMeasurements = new HashMap<>();
 
-        Map<String, Double> swap_measurements = putMeasurementsInMap(swapSort.getTime(), swapSort.getMemory(), Double.valueOf(swapSort.getSwaps()), Double.valueOf(swapSort.getLoops()));
-        ;
-        Map<String, Double> insertion_measurements = putMeasurementsInMap(insertionSort.getTime, insertionSort.getMemory, insertionSort.getComparisons, insertionSort.getLoopPasses());
-        Map<String, Double> merge_measurements = putMeasurementsInMap(mergeSort.getTime, mergeSort.getMemory, mergeSort.getComparisons, mergeSort.getLoops);
-        Map<String, Double> bubble_measurements = putMeasurementsInMap(bubbleSort.getTime, bubbleSort.getMemory, bubbleSort.getComparisons, bubbleSort.getLoops);
-        Map<String, Double> quick_measurements = putMeasurementsInMap(quickSort.getTime, quickSort.getMemory, quickSort.getComparisons, quickSort.getLoops);
+        Map<String, Double> swap_measurements = putMeasurementsInMap(swapSort.getTime(), swapSort.getMemory(), (double) swapSort.getComparisons(), (double) swapSort.getLoops());
+        Map<String, Double> insertion_measurements = putMeasurementsInMap(insertionSort.getTime(), insertionSort.getMemory(), insertionSort.getComparisons(), insertionSort.getLoops());
+        Map<String, Double> gnome_measurements = putMeasurementsInMap(gnomeSort.getTime(), gnomeSort.getMemory(), gnomeSort.getComparisons(), gnomeSort.getLoops());
+        Map<String, Double> bubble_measurements = putMeasurementsInMap(bubbleSort.getTime(), bubbleSort.getMemory(), bubbleSort.getComparisons(), bubbleSort.getLoops());
+        Map<String, Double> quick_measurements = putMeasurementsInMap(quickSort.getTime(), quickSort.getMemory(), quickSort.getComparisons(), quickSort.getLoops());
 
         mapOfAllMeasurements.put("swap", swap_measurements);
         mapOfAllMeasurements.put("insertion", insertion_measurements);
-        mapOfAllMeasurements.put("merge", merge_measurements);
+        mapOfAllMeasurements.put("gnome", gnome_measurements);
         mapOfAllMeasurements.put("bubble", bubble_measurements);
         mapOfAllMeasurements.put("quick", quick_measurements);
 
@@ -133,30 +130,30 @@ public class Main {
 
         String lineseperator = "--------------|--------------|--------------|--------------|--------------|-";
 
-        String swap_time = String.valueOf(decimalFormat.format(measurements.get("swap").get("time")));
-        String swap_memory = String.valueOf(decimalFormat.format(measurements.get("swap").get("memory")));
-        String swap_comparisons = String.valueOf(decimalFormat.format(measurements.get("swap").get("comparisons")));
-        String swap_loops = String.valueOf(decimalFormat.format(measurements.get("swap").get("loops")));
+        String swap_time = String.valueOf(measurements.get("swap").get("time"));
+        String swap_memory = String.valueOf(measurements.get("swap").get("memory"));
+        String swap_comparisons = String.valueOf(measurements.get("swap").get("comparisons"));
+        String swap_loops = String.valueOf(measurements.get("swap").get("loops"));
 
-        String insertion_time = String.valueOf(decimalFormat.format(measurements.get("insertion").get("time")));
-        String insertion_memory = String.valueOf(decimalFormat.format(measurements.get("insertion").get("memory")));
-        String insertion_comparisons = String.valueOf(decimalFormat.format(measurements.get("insertion").get("comparisons")));
-        String insertion_loops = String.valueOf(decimalFormat.format(measurements.get("insertion").get("loops")));
+        String insertion_time = String.valueOf(measurements.get("insertion").get("time"));
+        String insertion_memory = String.valueOf(measurements.get("insertion").get("memory"));
+        String insertion_comparisons = String.valueOf(measurements.get("insertion").get("comparisons"));
+        String insertion_loops = String.valueOf(measurements.get("insertion").get("loops"));
 
-        String merge_time = String.valueOf(decimalFormat.format(measurements.get("merge").get("time")));
-        String merge_memory = String.valueOf(decimalFormat.format(measurements.get("merge").get("memory")));
-        String merge_comparisons = String.valueOf(decimalFormat.format(measurements.get("merge").get("comparisons")));
-        String merge_loops = String.valueOf(decimalFormat.format(measurements.get("merge").get("loops")));
+        String gnome_time = String.valueOf(measurements.get("gnome").get("time"));
+        String gnome_memory = String.valueOf(measurements.get("gnome").get("memory"));
+        String gnome_comparisons = String.valueOf(measurements.get("gnome").get("comparisons"));
+        String gnome_loops = String.valueOf(measurements.get("gnome").get("loops"));
 
-        String bubble_time = String.valueOf(decimalFormat.format(measurements.get("bubble").get("time")));
-        String bubble_memory = String.valueOf(decimalFormat.format(measurements.get("bubble").get("memory")));
-        String bubble_comparisons = String.valueOf(decimalFormat.format(measurements.get("bubble").get("comparisons")));
-        String bubble_loops = String.valueOf(decimalFormat.format(measurements.get("bubble").get("loops")));
+        String bubble_time = String.valueOf(measurements.get("bubble").get("time"));
+        String bubble_memory = String.valueOf(measurements.get("bubble").get("memory"));
+        String bubble_comparisons = String.valueOf(measurements.get("bubble").get("comparisons"));
+        String bubble_loops = String.valueOf(measurements.get("bubble").get("loops"));
 
-        String quick_time = String.valueOf(decimalFormat.format(measurements.get("quick").get("time")));
-        String quick_memory = String.valueOf(decimalFormat.format(measurements.get("quick").get("memory")));
-        String quick_comparisons = String.valueOf(decimalFormat.format(measurements.get("quick").get("comparisons")));
-        String quick_loops = String.valueOf(decimalFormat.format(measurements.get("quick").get("loops")));
+        String quick_time = String.valueOf(measurements.get("quick").get("time"));
+        String quick_memory = String.valueOf(measurements.get("quick").get("memory"));
+        String quick_comparisons = String.valueOf(measurements.get("quick").get("comparisons");
+        String quick_loops = String.valueOf(measurements.get("quick").get("loops"));
 
         System.out.println(makeALineForTable("","Time(ms)", "Memory(byte)", "Comparisons", "loops"));
         System.out.println(lineseperator);
@@ -164,7 +161,7 @@ public class Main {
         System.out.println(lineseperator);
         System.out.println(makeALineForTable("InsertionSort", insertion_time, insertion_memory, insertion_comparisons, insertion_loops));
         System.out.println(lineseperator);
-        System.out.println(makeALineForTable("MergeSort", merge_time, merge_memory, merge_comparisons, merge_loops));
+        System.out.println(makeALineForTable("gnomeSort", gnome_time, gnome_memory, gnome_comparisons, gnome_loops));
         System.out.println(lineseperator);
         System.out.println(makeALineForTable("BubbleSort", bubble_time, bubble_memory, bubble_comparisons, bubble_loops));
         System.out.println(lineseperator);
@@ -185,12 +182,12 @@ public class Main {
 
     private static String makeStringLengthFourteen(String s){
         if (s == null){
-            s = "";
+            s = "N/A";
         }
         while (s.length() < 14){
             s = " " + s;
         }
         return s;
     }
-}*/
+}
 
