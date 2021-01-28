@@ -89,7 +89,7 @@ public class gnomeSort {
         return;
     }
 
-    // Driver program to test above functions. 
+    /**
     public static void main(String[] args) {
         int arr[] = {34, 2, 10, -9};
 
@@ -102,5 +102,5 @@ public class gnomeSort {
         System.out.println(gs.getFinalTime() + " ms");
         System.out.println(gs.getLoopCounter() + " loops");
         System.out.println(gs.getIterrationCounter() + " iterrations");
-    }
+    }**/
 }
