@@ -22,7 +22,6 @@ public class gnomeSort {
     private long finalTime;
 
     private int loopCounter;
-    private int iterrationCounter;
 
     /**
      *
@@ -34,7 +33,6 @@ public class gnomeSort {
 
     public void setStartTime() {
         startTime = new Date().getTime();
-        ;
     }
 
     public long getEndTime() {
@@ -62,13 +60,6 @@ public class gnomeSort {
         this.loopCounter++;
     }
 
-    public int getIterrationCounter() {
-        return iterrationCounter;
-    }
-
-    public void plusIterrationCounter() {
-        this.iterrationCounter++;
-    }
 
     /**
      * Was macht es
@@ -83,10 +74,8 @@ public class gnomeSort {
         while (index < n) {
             plusLoopCounter();
             if (index == 0)
-                plusIterrationCounter();
             index++;
             if (arr[index] >= arr[index - 1]) {
-                plusIterrationCounter();
                 index++;
             } else {
                 int temp = 0;
@@ -100,7 +89,7 @@ public class gnomeSort {
         return;
     }
 
-    // Driver program to test above functions. 
+    /**
     public static void main(String[] args) {
         int arr[] = {34, 2, 10, -9};
 
@@ -113,5 +102,5 @@ public class gnomeSort {
         System.out.println(gs.getFinalTime() + " ms");
         System.out.println(gs.getLoopCounter() + " loops");
         System.out.println(gs.getIterrationCounter() + " iterrations");
-    }
+    }**/
 }
